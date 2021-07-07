@@ -7,7 +7,7 @@ spec:
     headlessEnabled: true
   zkAddress: "zookeeper-0.zookeeper-headless.default.svc.cluster.local:2181"
   zkPath: "/simplenifi"
-  clusterImage: "apache/nifi:latest"
+  clusterImage: "apache/nifi:1.12.1"
   oneNifiNodePerNode: false
   nodeConfigGroups:
     default_group:
