@@ -62,10 +62,10 @@ spec:
       create: true
   sidecarConfigs:
   - name: simplenifi4
-      livenessProbe:
-        initialDelaySeconds: 180
-      readinessProbe:
-        initialDelaySeconds: 180
+    livenessProbe:
+      initialDelaySeconds: 180
+    readinessProbe:
+      initialDelaySeconds: 180
   externalServices:
     - name: "clusterip"
       spec:
