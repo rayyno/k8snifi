@@ -1,0 +1,29 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nifi-registry-http
+spec:
+  type: LoadBalancer
+  selector:
+    app: nifi-registry
+  ports:
+    - protocol: TCP
+      port: 19090
+      targetPort: 19090
+      name: nifi
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: nifi-registry
+spec:
+  clusterIP: None
+  selector:
+    app: nifi-registry
+  ports:
+    - protocol: TCP
+      port: 19090
+      targetPort: 19090
+      name: nifi-registry-listen-http
