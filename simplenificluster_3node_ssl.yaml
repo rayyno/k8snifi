@@ -60,8 +60,7 @@ spec:
     sslSecrets:
       tlsSecretName: "test-nifikop4"
       create: true
-  sidecarConfigs:
-  - name: simplenifi4
+  initContainers:
     livenessProbe:
       initialDelaySeconds: 180
     readinessProbe:
