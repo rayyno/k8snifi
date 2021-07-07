@@ -1,12 +1,12 @@
 apiVersion: nifi.orange.com/v1alpha1
 kind: NifiCluster
 metadata:
-  name: simplenifi3
+  name: simplenifi4
 spec:
   service:
     headlessEnabled: true
   zkAddress: "zookeeper-0.zookeeper-headless.default.svc.cluster.local:2181"
-  zkPath: "/simplenifi3"
+  zkPath: "/simplenifi4"
   clusterImage: "apache/nifi:1.12.1"
   oneNifiNodePerNode: false
   managedAdminUsers:
@@ -58,12 +58,13 @@ spec:
         name: "prometheus"
         containerPort: 9090
     sslSecrets:
-      tlsSecretName: "test-nifikop3"
+      tlsSecretName: "test-nifikop4"
       create: true
   sidecarConfigs:
-    - livenessProbe:
+  - name: simplenifi4
+      livenessProbe:
         initialDelaySeconds: 180
-    - readinessProbe:
+      readinessProbe:
         initialDelaySeconds: 180
   externalServices:
     - name: "clusterip"
