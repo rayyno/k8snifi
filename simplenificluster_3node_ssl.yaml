@@ -58,22 +58,8 @@ spec:
         name: "prometheus"
         containerPort: 9090
     sslSecrets:
-      tlsSecretName: "test-nifikop5"
+      tlsSecretName: "test-nifikop7"
       create: true
-  sidecarConfigs:
-    - name: simplenifi
-      readinessProbe:
-        exec:
-          command:
-          - cat
-          - /tmp/healthy
-        initialDelaySeconds: 120  
-      livenessProbe:
-        exec:
-          command:
-          - cat
-          - /tmp/healthy
-        initialDelaySeconds: 120  
   externalServices:
     - name: "clusterip"
       spec:
