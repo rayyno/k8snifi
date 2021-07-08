@@ -61,19 +61,19 @@ spec:
       tlsSecretName: "test-nifikop5"
       create: true
   sidecarConfigs:
-    - name: nifi
+    - name: simplenifi
       readinessProbe:
         exec:
           command:
           - cat
           - /tmp/healthy
-        initialDelaySeconds: 180  
+        initialDelaySeconds: 120  
       livenessProbe:
         exec:
           command:
           - cat
           - /tmp/healthy
-        initialDelaySeconds: 180  
+        initialDelaySeconds: 120  
   externalServices:
     - name: "clusterip"
       spec:
