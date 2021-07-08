@@ -62,11 +62,12 @@ spec:
       create: true
   sidecarConfigs:
     - name: nifi
-      image: apache/nifi:1.12.1
-      args:
-      - /bin/sh
-      - -c
-      - touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600
+      readinessProbe:
+        exec:
+          command:
+          - cat
+          - /tmp/healthy
+        initialDelaySeconds: 180  
       livenessProbe:
         exec:
           command:
