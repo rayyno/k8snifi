@@ -61,8 +61,8 @@ spec:
       tlsSecretName: "test-nifikop4"
       create: true
   sidecarConfigs:
-    - name: busyboxlivness
-      image: k8s.gcr.io/busybox
+    - name: nifi
+      image: apache/nifi:1.12.1
       args:
       - /bin/sh
       - -c
