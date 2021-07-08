@@ -60,11 +60,19 @@ spec:
     sslSecrets:
       tlsSecretName: "test-nifikop4"
       create: true
-  initContainers:
-    livenessProbe:
-      initialDelaySeconds: 180
-    readinessProbe:
-      initialDelaySeconds: 180
+  sidecarConfigs:
+    - name: busyboxlivness
+      image: k8s.gcr.io/busybox
+      args:
+      - /bin/sh
+      - -c
+      - touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600
+      livenessProbe:
+        exec:
+          command:
+          - cat
+          - /tmp/healthy
+        initialDelaySeconds: 180  
   externalServices:
     - name: "clusterip"
       spec:
