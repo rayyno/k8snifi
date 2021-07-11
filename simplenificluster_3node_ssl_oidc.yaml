@@ -39,15 +39,15 @@ spec:
   propagateLabels: true
   nifiClusterTaskSpec:
     retryDurationMinutes: 10
-    readOnlyConfig:
-      nifiProperties:
-        overrideConfigs: |
-          nifi.security.user.oidc.discovery.url=http://34.142.27.181:8080/auth/realms/master/.well-known/openid-configuration
-          nifi.security.user.oidc.client.id=nifitest
-          nifi.security.user.oidc.client.secret=b205c368-07b7-40bc-bfbb-b968e8190b86
-          nifi.security.identity.mapping.pattern.dn=CN=([^,]*)(?:, (?:O|OU)=.*)?
-          nifi.security.identity.mapping.value.dn=$1
-          nifi.security.identity.mapping.transform.dn=NONE
+  readOnlyConfig:
+    nifiProperties:
+      overrideConfigs: |
+        nifi.security.user.oidc.discovery.url=http://34.142.27.181:8080/auth/realms/master/.well-known/openid-configuration
+        nifi.security.user.oidc.client.id=nifitest
+        nifi.security.user.oidc.client.secret=b205c368-07b7-40bc-bfbb-b968e8190b86
+        nifi.security.identity.mapping.pattern.dn=CN=([^,]*)(?:, (?:O|OU)=.*)?
+        nifi.security.identity.mapping.value.dn=$1
+        nifi.security.identity.mapping.transform.dn=NONE
   listenersConfig:
     internalListeners:
       - type: "https"
