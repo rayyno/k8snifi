@@ -1,0 +1,92 @@
+apiVersion: nifi.orange.com/v1alpha1
+kind: NifiCluster
+metadata:
+  name: simplenifi
+spec:
+  service:
+    headlessEnabled: true
+  zkAddress: "zookeeper-0.zookeeper-headless.zookeeper.svc.cluster.local:2181"
+  zkPath: "/simplenifi"
+  clusterImage: "apache/nifi:1.12.1"
+  oneNifiNodePerNode: false
+  managedAdminUsers:
+    - identity: "rayan@email.com"
+      name: "name"
+  nodeConfigGroups:
+    default_group:
+      isNode: true
+      storageConfigs:
+        - mountPath: "/opt/nifi/nifi-current/logs"
+          name: logs
+          pvcSpec:
+            accessModes:
+              - ReadWriteOnce
+            storageClassName: "standard"
+            resources:
+              requests:
+                storage: 10Gi
+      serviceAccountName: "default"
+      resourcesRequirements:
+        limits:
+          cpu: "0.5"
+          memory: 2Gi
+        requests:
+          cpu: "0.5"
+          memory: 2Gi
+  nodes:
+    - id: 0
+      nodeConfigGroup: "default_group"
+  propagateLabels: true
+  nifiClusterTaskSpec:
+    retryDurationMinutes: 10
+    readOnlyConfig:
+      nifiProperties:
+        overrideConfigs: |
+          nifi.security.user.oidc.discovery.url=http://34.142.27.181:8080/auth/realms/master/.well-known/openid-configuration
+          nifi.security.user.oidc.client.id=nifitest
+          nifi.security.user.oidc.client.secret=b205c368-07b7-40bc-bfbb-b968e8190b86
+          nifi.security.identity.mapping.pattern.dn=CN=([^,]*)(?:, (?:O|OU)=.*)?
+          nifi.security.identity.mapping.value.dn=$1
+          nifi.security.identity.mapping.transform.dn=NONE
+  listenersConfig:
+    internalListeners:
+      - type: "https"
+        name: "https"
+        containerPort: 8443
+      - type: "cluster"
+        name: "cluster"
+        containerPort: 6007
+      - type: "s2s"
+        name: "s2s"
+        containerPort: 10000
+      - type: "prometheus"
+        name: "prometheus"
+        containerPort: 9090
+    sslSecrets:
+      tlsSecretName: "test-nifikop10"
+      create: true
+  externalServices:
+    - name: "clusterip"
+      spec:
+        type: ClusterIP
+        portConfigs:
+          - port: 8443
+            internalListenerName: "https"
+      serviceAnnotations:
+        toto: tata
+    - name: "loadbalancer"
+      spec:
+        type: LoadBalancer
+        portConfigs:
+          - port: 8443
+            internalListenerName: "https"
+      serviceAnnotations:
+        toto: tata
+    - name: "nodepart"
+      spec:
+        type: NodePort
+        portConfigs:
+          - port: 8443
+            internalListenerName: "https"
+      serviceAnnotations:
+        toto: tata
