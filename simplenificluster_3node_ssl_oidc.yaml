@@ -41,6 +41,8 @@ spec:
     retryDurationMinutes: 10
   readOnlyConfig:
     nifiProperties:
+      webProxyHosts:
+        - 34.142.97.60:8443
       overrideConfigs: |
         nifi.security.user.oidc.discovery.url=http://34.142.27.181:8080/auth/realms/master/.well-known/openid-configuration
         nifi.security.user.oidc.client.id=nifitest
