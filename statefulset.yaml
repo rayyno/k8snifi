@@ -45,8 +45,14 @@ spec:
           ports:
             - containerPort: 19443
           volumeMounts:
-            - name: redis-storage
-              mountPath: /data/redis
+            - name: registryconf
+              mountPath: /opt/nifi-registry/nifi-registry-current/keystore.jks
+              subPath: keystore.jks
+            - name: registryconf
+              mountPath: /opt/nifi-registry/nifi-registry-current/truststore.jks
+              subPath: truststore.jks
+            - name: registryproperties
+              mountPath: /opt/nifi-registry/nifi-registry-current/nifi-registry.properties
           env:
             - name: NIFI_REGISTRY_WEB_HTTP_PORT
               value: "19090"
@@ -69,8 +75,19 @@ spec:
             - name: GIT_CONFIG_USER_EMAIL
               value: ""
       volumes:
-        - name: redis-storage
-          emptyDir: {}
+        - name: registryconf
+          projected:
+            sources:
+            - secret:
+                name: registry-configs
+                items:
+                  - key: keystore.jks
+                    path: keystore.jks
+                  - key: truststore.jks
+                    path: truststore.jks
+        - name: registryproperties
+          configMap:
+            name: registry-properties
   # volumeClaimTemplates:
   # - metadata:
   #     name: flowfilerepository
