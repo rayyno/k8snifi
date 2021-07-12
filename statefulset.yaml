@@ -39,7 +39,7 @@ spec:
             - '-c'
           args:
             - >-
-              cat /data/redis/nifi-registry.properties >
+              cat /opt/nifi-registry/nifi-registry-current/nifi-registry.properties >
               /opt/nifi-registry/nifi-registry-current/conf/nifi-registry.properties; cd
               /opt/nifi-registry/nifi-registry-current &&  ../scripts/start.sh
           ports:
