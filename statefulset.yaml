@@ -34,8 +34,16 @@ spec:
               memory: 256Mi
               cpu: 500m
           imagePullPolicy: Always
+          command:
+            - /bin/sh
+            - '-c'
+          args:
+            - >-
+              cat /data/redis/nifi-registry.properties >
+              /opt/nifi-registry/nifi-registry-current/conf/nifi-registry.properties; cd
+              /opt/nifi-registry/nifi-registry-current &&  ../scripts/start.sh
           ports:
-            - containerPort: 19090
+            - containerPort: 19443
           volumeMounts:
             - name: redis-storage
               mountPath: /data/redis
