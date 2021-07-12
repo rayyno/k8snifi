@@ -36,9 +36,9 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 19090
-          # volumeMounts:
-            # - name: flowfilerepository
-              # mountPath: /opt/nifi/flowfile_repository
+          volumeMounts:
+            - name: redis-storage
+              mountPath: /data/redis
           env:
             - name: NIFI_REGISTRY_WEB_HTTP_PORT
               value: "19090"
@@ -60,6 +60,9 @@ spec:
               value: "APACHE NIFI REGISTRY"
             - name: GIT_CONFIG_USER_EMAIL
               value: ""
+      volumes:
+        - name: redis-storage
+          emptyDir: {}
   # volumeClaimTemplates:
   # - metadata:
   #     name: flowfilerepository
