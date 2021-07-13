@@ -1,17 +1,17 @@
 apiVersion: nifi.orange.com/v1alpha1
 kind: NifiCluster
 metadata:
-  name: simplenifi
+  name: sslnifi
 spec:
   service:
     headlessEnabled: true
   zkAddress: "zookeeper-0.zookeeper-headless.zookeeper.svc.cluster.local:2181"
-  zkPath: "/simplenifi"
+  zkPath: "/sslnifi"
   clusterImage: "apache/nifi:1.12.1"
   oneNifiNodePerNode: false
   managedAdminUsers:
     - identity: "rayan@email.com"
-      name: "rayan@email.com"
+      name: "rayan"
   nodeConfigGroups:
     default_group:
       isNode: true
@@ -44,6 +44,7 @@ spec:
       webProxyHosts:
         - 34.105.174.143:8443
         - 34.142.97.60:8443
+        - 34.142.29.137:8443
       overrideConfigs: |
         nifi.security.user.oidc.discovery.url=http://34.142.27.181:8080/auth/realms/master/.well-known/openid-configuration
         nifi.security.user.oidc.client.id=nifitest
@@ -66,7 +67,7 @@ spec:
         name: "prometheus"
         containerPort: 9090
     sslSecrets:
-      tlsSecretName: "test-nifikop13"
+      tlsSecretName: "ssl-nifikop"
       create: true
   externalServices:
     - name: "clusterip"
