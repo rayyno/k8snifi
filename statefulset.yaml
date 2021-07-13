@@ -39,9 +39,9 @@ spec:
             - '-c'
           args:
             - >-
-              rm /opt/nifi-registry/nifi-registry-current/conf/nifi-registry.properties
+              rm /opt/nifi-registry/nifi-registry-current/conf/nifi-registry.properties;
               cat /opt/nifi-registry/nifi-registry-current/nifi-registry.properties/nifi-registry.properties >
-              /opt/nifi-registry/nifi-registry-current/conf/nifi-registry.properties; cd
+              /opt/nifi-registry/nifi-registry-current/conf/nifi-registry.properties;cd
               /opt/nifi-registry/nifi-registry-current &&  ../scripts/start.sh
           ports:
             - containerPort: 19443
