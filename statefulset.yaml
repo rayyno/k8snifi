@@ -35,8 +35,8 @@ spec:
               cpu: 500m
           imagePullPolicy: Always
           command:
-            - /bin/sh
-            - '-c'
+            - bash
+            - -c
             - |
               cat /opt/nifi-registry/nifi-registry-current/nifi-registry.properties/nifi-registry.properties > /opt/nifi-registry/nifi-registry-current/conf/nifi-registry.properties
               exec /opt/nifi-registry/scripts/start.sh
