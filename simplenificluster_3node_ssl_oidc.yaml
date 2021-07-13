@@ -11,7 +11,7 @@ spec:
   oneNifiNodePerNode: false
   managedAdminUsers:
     - identity: "rayan@email.com"
-      name: "name"
+      name: "rayan@email.com"
   nodeConfigGroups:
     default_group:
       isNode: true
