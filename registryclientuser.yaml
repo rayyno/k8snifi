@@ -1,7 +1,7 @@
 apiVersion:  nifi.orange.com/v1alpha1
 kind: NifiUser
 metadata:
-  name: registry-client
+  name: nifi-registry-0
   namespace: nifi
 spec:
   clusterRef:
