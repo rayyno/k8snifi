@@ -46,10 +46,10 @@ spec:
           ports:
             - containerPort: 19443
           volumeMounts:
-            - name: registryconf
+            - name: registryssl
               mountPath: /opt/nifi-registry/nifi-registry-current/keystore.jks
               subPath: keystore.jks
-            - name: registryconf
+            - name: registryssl
               mountPath: /opt/nifi-registry/nifi-registry-current/truststore.jks
               subPath: truststore.jks
             - name: registryproperties
@@ -74,11 +74,11 @@ spec:
             - name: GIT_CONFIG_USER_EMAIL
               value: ""
       volumes:
-        - name: registryconf
+        - name: registryssl
           projected:
             sources:
             - secret:
-                name: registry-configs
+                name: registry-ssl
                 items:
                   - key: keystore.jks
                     path: keystore.jks
