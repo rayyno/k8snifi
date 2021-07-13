@@ -41,7 +41,7 @@ spec:
                   - bash
                   - -c
                   - |
-                    cat /opt/nifi-registry/nifi-registry-current/nifi-registry.properties/nifi-registry.properties > /opt/nifi-registry/nifi-registry-current/conf/nifi-registry.properties
+                    cat /opt/nifi-registry/nifi-registry-current/nifi-registry.properties/nifi-registry.properties > /opt/nifi-registry/nifi-registry-current/conf/nifi-registry.properties;
                     cat /opt/nifi-registry/nifi-registry-current/nifi-registry.properties/authorizers.xml > /opt/nifi-registry/nifi-registry-current/conf/authorizers.xml
           ports:
             - containerPort: 19443
