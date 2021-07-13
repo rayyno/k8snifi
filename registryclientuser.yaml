@@ -7,3 +7,4 @@ spec:
   clusterRef:
     name: simplenifi
   secretName: registry-client-secret
+  includeJKS: true
