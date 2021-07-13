@@ -8,8 +8,8 @@ spec:
     app: nifi-registry
   ports:
     - protocol: TCP
-      port: 19090
-      targetPort: 19090
+      port: 19443
+      targetPort: 19443
       name: nifi
 
 ---
@@ -24,6 +24,6 @@ spec:
     app: nifi-registry
   ports:
     - protocol: TCP
-      port: 19090
-      targetPort: 19090
+      port: 19443
+      targetPort: 19443
       name: nifi-registry-listen-http
