@@ -68,7 +68,7 @@ spec:
         name: "prometheus"
         containerPort: 9090
     sslSecrets:
-      tlsSecretName: "test-nifikop11"
+      tlsSecretName: "test-nifikop12"
       create: true
   externalServices:
     - name: "clusterip"
