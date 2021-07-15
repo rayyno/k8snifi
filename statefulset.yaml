@@ -78,7 +78,7 @@ spec:
           projected:
             sources:
             - secret:
-                name: registry-client-secret
+                name: registry-ssl
                 items:
                   - key: keystore.jks
                     path: keystore.jks
