@@ -74,7 +74,10 @@ spec:
         - 34.142.29.137:8443
         - 34.*.*.*:8443
         - 0.0.0.0:8443
-        - 35.205.255.34:19443
+        - 34.76.102.217:30250
+        - 35.189.248.130
+        - 34.140.123.197
+        - 34.79.65.253
       overrideConfigs: |
         nifi.security.user.oidc.discovery.url=http://35.190.202.19:8080/auth/realms/master/.well-known/openid-configuration
         nifi.security.user.oidc.client.id=nifi
