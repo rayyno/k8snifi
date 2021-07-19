@@ -8,7 +8,7 @@ spec:
   selector:
     app: ssl-nifi-0
   ports:
-  - port: 80
-    targetPort: 8080
+  - port: 8443
+    targetPort: 8443
   type: LoadBalancer
   loadBalancerIP: 35.205.55.108
