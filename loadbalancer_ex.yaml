@@ -3,10 +3,12 @@ kind: Service
 metadata:
   name: nifi-static-lb
   labels:
-    app: ssl-nifi-0
+    app: nifi
+    nifi_cr: sslnifi
 spec:
   selector:
-    app: ssl-nifi-0
+    app: nifi
+    nifi_cr: sslnifi
   ports:
   - port: 8443
     targetPort: 8443
