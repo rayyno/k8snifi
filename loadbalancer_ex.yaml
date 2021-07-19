@@ -1,15 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: helloweb
+  name: nifi-static-lb
   labels:
-    app: hello
+    app: ssl-nifi-0
 spec:
   selector:
-    app: hello
-    tier: web
+    app: ssl-nifi-0
   ports:
   - port: 80
     targetPort: 8080
   type: LoadBalancer
-  loadBalancerIP: "YOUR.IP.ADDRESS.HERE"
+  loadBalancerIP: 35.205.55.108
