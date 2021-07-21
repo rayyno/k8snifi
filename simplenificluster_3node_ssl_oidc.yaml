@@ -6,7 +6,7 @@ spec:
   service:
     headlessEnabled: true
   zkAddress: "zookeeper-0.zookeeper-headless.zookeeper.svc.cluster.local:2181"
-  zkPath: "/sslnifi"
+  zkPath: "/sslnifi1"
   clusterImage: "apache/nifi:1.12.1"
   oneNifiNodePerNode: false
   managedAdminUsers:
