@@ -28,8 +28,6 @@ spec:
           value: "1234"
         - name: DB_PORT
           value: "3306"
-        - name: DB_HOST
-          value: "db"
         ports:
         - name: http
           containerPort: 9090
