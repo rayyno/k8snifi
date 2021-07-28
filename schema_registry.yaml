@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: schema-registry
-  namespace: schema-registry
+  namespace: mysql
   labels:
     app: schema-registry
 spec:
