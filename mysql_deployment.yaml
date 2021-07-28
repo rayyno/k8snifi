@@ -31,6 +31,12 @@ spec:
           # Use secret in real usage
         - name: MYSQL_ROOT_PASSWORD
           value: 1234
+        - name: MYSQL_DATABASE
+          value: hortonworks
+        - name: MYSQL_USER
+          value: sarah
+        - name: MYSQL_PASSWORD
+          value: 1234
         ports:
         - containerPort: 3306
           name: mysql
