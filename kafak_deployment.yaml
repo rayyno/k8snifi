@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: schema-registry
+  namespace: mysql
+  labels:
+    app: schema-registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: schema-registry
+  template:
+    metadata:
+      labels:
+        app: schema-registry
+    spec:
+      containers:
+      - name: schema-registry
+        image: thebookpeople/hortonworks-registry:latest
+        imagePullPolicy: Always
+        env:
+        - name: DB_NAME
+          value: "hortonworks"
+        - name: DB_USER
+          value: "sarah"
+        - name: DB_PASSWORD
+          value: "1234"
+        - name: DB_PORT
+          value: "3306"
+        - name: DB_HOST
+          value: "10.124.0.17"
+        ports:
+        - name: http
+          containerPort: 9090
