@@ -9,4 +9,4 @@ spec:
   tasksMax: 2
   config:
     file: "/tmp/my-file"
-    topic: connect-example
+    topics: connect-example
