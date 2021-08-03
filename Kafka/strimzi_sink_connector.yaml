@@ -3,10 +3,10 @@ kind: KafkaConnector
 metadata:
   name: my-sink-connector
   labels:
-  strimzi.io/cluster: my-connect
+    strimzi.io/cluster: my-connect-cluster
 spec:
   class: org.apache.kafka.connect.file.FileStreamSinkConnector
   tasksMax: 2
   config:
-  file: "/tmp/my-file"
-  topics: connect-example
+    file: "/tmp/my-file"
+    topic: connect-example
