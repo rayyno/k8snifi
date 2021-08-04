@@ -6,7 +6,7 @@ spec:
   service:
     headlessEnabled: true
   zkAddress: "zookeeper-0.zookeeper-headless.zookeeper.svc.cluster.local:2181"
-  zkPath: "/sslnifi1"
+  zkPath: "/sslnifi2"
   clusterImage: "apache/nifi:1.12.1"
   oneNifiNodePerNode: false
   managedAdminUsers:
@@ -93,7 +93,7 @@ spec:
         name: "prometheus"
         containerPort: 9090
     sslSecrets:
-      tlsSecretName: "ssl-nifikop1"
+      tlsSecretName: "ssl-nifikop4"
       create: true
   externalServices:
     - name: "clusterip"
