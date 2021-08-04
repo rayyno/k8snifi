@@ -75,9 +75,6 @@ spec:
         nifi.security.user.oidc.discovery.url=http://34.78.211.255:8080/auth/realms/master/.well-known/openid-configuration
         nifi.security.user.oidc.client.id=nifi
         nifi.security.user.oidc.client.secret=c543d2e5-d628-466a-a3e5-7c9803f27991
-        nifi.security.identity.mapping.pattern.dn=CN=([^,]*)(?:, (?:O|OU)=.*)?
-        nifi.security.identity.mapping.value.dn=$1
-        nifi.security.identity.mapping.transform.dn=NONE
   listenersConfig:
     internalListeners:
       - type: "https"
