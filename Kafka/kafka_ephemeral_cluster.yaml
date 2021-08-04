@@ -21,6 +21,8 @@ spec:
       transaction.state.log.min.isr: 1
       log.message.format.version: "2.8"
       inter.broker.protocol.version: "2.8"
+      replica.fetch.max.bytes: 1000000000
+      message.max.bytes: 1000000000
     storage:
       type: ephemeral
     metricsConfig:
