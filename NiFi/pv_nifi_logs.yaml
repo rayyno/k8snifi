@@ -9,6 +9,6 @@ spec:
   accessModes:
     - ReadWriteOnce
   gcePersistentDisk:
-    pdName: gke-cluster-1-default-pool-e937016a-7jb5
+    pdName: nifi-logs-disk1
     fsType: ext4
   persistentVolumeReclaimPolicy: Retain

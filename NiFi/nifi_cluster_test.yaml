@@ -25,7 +25,7 @@ spec:
             storageClassName: "standard"
             resources:
               requests:
-                storage: 1Gi
+                storage: 10Gi
       serviceAccountName: "default"
       resourcesRequirements:
         limits:
