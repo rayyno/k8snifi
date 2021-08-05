@@ -5,10 +5,10 @@ metadata:
 spec:
   storageClassName: standard
   capacity:
-    storage: 10Gi
+    storage: 1Gi
   accessModes:
     - ReadWriteOnce
   gcePersistentDisk:
-    pdName: nifi-disk
+    pdName: gke-cluster-1-default-pool-e937016a-7jb5
     fsType: ext4
   persistentVolumeReclaimPolicy: Retain

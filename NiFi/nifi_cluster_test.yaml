@@ -1,0 +1,96 @@
+apiVersion: nifi.orange.com/v1alpha1
+kind: NifiCluster
+metadata:
+  name: sslnifi
+spec:
+  service:
+    headlessEnabled: true
+  zkAddress: "zookeeper-0.zookeeper-headless.zookeeper.svc.cluster.local:2181"
+  zkPath: "/sslnifi5"
+  clusterImage: "apache/nifi:1.12.1"
+  oneNifiNodePerNode: false
+  managedAdminUsers:
+    - identity: "rayan@email.com"
+      name: "rayan"
+  nodeConfigGroups:
+    default_group:
+      isNode: true
+      storageConfigs:
+        - mountPath: "/opt/nifi/nifi-current/logs"
+          name: nifi-logs-pvc
+          pvcSpec:
+            accessModes:
+              - ReadWriteOnce
+            volumeName: "nifi-logs-pv"
+            storageClassName: "standard"
+            resources:
+              requests:
+                storage: 1Gi
+      serviceAccountName: "default"
+      resourcesRequirements:
+        limits:
+          cpu: "0.5"
+          memory: 2Gi
+        requests:
+          cpu: "0.5"
+          memory: 2Gi
+  nodes:
+    - id: 0
+      nodeConfigGroup: "default_group"
+  propagateLabels: true
+  nifiClusterTaskSpec:
+    retryDurationMinutes: 10
+  readOnlyConfig:
+    nifiProperties:
+      webProxyHosts:
+        - 35.205.55.108:8443
+        - 34.140.15.40:19443
+      overrideConfigs: |
+        nifi.security.user.oidc.discovery.url=http://34.78.211.255:8080/auth/realms/master/.well-known/openid-configuration
+        nifi.security.user.oidc.client.id=nifi
+        nifi.security.user.oidc.client.secret=c543d2e5-d628-466a-a3e5-7c9803f27991
+        nifi.security.identity.mapping.pattern.dn=CN=([^,]*)(?:, (?:O|OU)=.*)?
+        nifi.security.identity.mapping.value.dn=$1
+        nifi.security.identity.mapping.transform.dn=NONE
+  listenersConfig:
+    internalListeners:
+      - type: "https"
+        name: "https"
+        containerPort: 8443
+      - type: "cluster"
+        name: "cluster"
+        containerPort: 6007
+      - type: "s2s"
+        name: "s2s"
+        containerPort: 10000
+      - type: "prometheus"
+        name: "prometheus"
+        containerPort: 9090
+    sslSecrets:
+      tlsSecretName: "ssl-nifikop7"
+      create: true
+  externalServices:
+    - name: "clusterip"
+      spec:
+        type: ClusterIP
+        portConfigs:
+          - port: 8443
+            internalListenerName: "https"
+      serviceAnnotations:
+        toto: tata
+    - name: "loadbalancer"
+      spec:
+        type: LoadBalancer
+        portConfigs:
+          - port: 8443
+            internalListenerName: "https"
+      serviceAnnotations:
+        toto: tata
+    - name: "nodepart"
+      spec:
+        type: NodePort
+        portConfigs:
+          - port: 8443
+            internalListenerName: "https"
+      serviceAnnotations:
+        toto: tata
