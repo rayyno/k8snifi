@@ -21,6 +21,7 @@ spec:
           pvcSpec:
             accessModes:
               - ReadWriteOnce
+            VolumeName: "nifi-logs-pv"
             storageClassName: "standard"
             resources:
               requests:
@@ -30,6 +31,7 @@ spec:
           pvcSpec:
             accessModes:
               - ReadWriteOnce
+            VolumeName: "nifi-content-pv"
             storageClassName: "standard"
             resources:
               requests:
@@ -39,6 +41,7 @@ spec:
           pvcSpec:
             accessModes:
               - ReadWriteOnce
+            VolumeName: "nifi-flow-pv"
             storageClassName: "standard"
             resources:
               requests:
@@ -48,6 +51,7 @@ spec:
           pvcSpec:
             accessModes:
               - ReadWriteOnce
+            VolumeName: "nifi-provenance-pv"
             storageClassName: "standard"
             resources:
               requests:
