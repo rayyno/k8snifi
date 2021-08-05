@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: nifi-flow-pv
+spec:
+  storageClassName: standard
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: nifi
+    name: nifi-flow-pvc
+  gcePersistentDisk:
+    pdName: nifi-disk
+    fsType: ext4
+  persistentVolumeReclaimPolicy: Retain
