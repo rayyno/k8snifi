@@ -6,7 +6,7 @@ spec:
   service:
     headlessEnabled: true
   zkAddress: "zookeeper-0.zookeeper-headless.zookeeper.svc.cluster.local:2181"
-  zkPath: "/sslnifi2"
+  zkPath: "/sslnifi3"
   clusterImage: "apache/nifi:1.12.1"
   oneNifiNodePerNode: false
   managedAdminUsers:
@@ -33,7 +33,7 @@ spec:
             storageClassName: "standard"
             resources:
               requests:
-                storage: 3Gi
+                storage: 10Gi
         - mountPath: "/opt/nifi/nifi-current/flowfile_repository"
           name: nifi-flow
           pvcSpec:
@@ -42,7 +42,7 @@ spec:
             storageClassName: "standard"
             resources:
               requests:
-                storage: 3Gi
+                storage: 10Gi
         - mountPath: "/opt/nifi/nifi-current/provenance_repository"
           name: nifi-provenance
           pvcSpec:
@@ -51,7 +51,7 @@ spec:
             storageClassName: "standard"
             resources:
               requests:
-                storage: 3Gi
+                storage: 10Gi
       serviceAccountName: "default"
       resourcesRequirements:
         limits:
@@ -93,7 +93,7 @@ spec:
         name: "prometheus"
         containerPort: 9090
     sslSecrets:
-      tlsSecretName: "ssl-nifikop4"
+      tlsSecretName: "ssl-nifikop5"
       create: true
   externalServices:
     - name: "clusterip"
