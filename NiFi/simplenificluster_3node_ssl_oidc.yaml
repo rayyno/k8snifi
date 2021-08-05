@@ -17,7 +17,7 @@ spec:
       isNode: true
       storageConfigs:
         - mountPath: "/opt/nifi/nifi-current/logs"
-          name: logs
+          name: nifi-logs-pvc
           pvcSpec:
             accessModes:
               - ReadWriteOnce
@@ -26,7 +26,7 @@ spec:
               requests:
                 storage: 10Gi
         - mountPath: "/opt/nifi/nifi-current/content_repository"
-          name: nifi-content
+          name: nifi-content-pvc
           pvcSpec:
             accessModes:
               - ReadWriteOnce
@@ -35,7 +35,7 @@ spec:
               requests:
                 storage: 10Gi
         - mountPath: "/opt/nifi/nifi-current/flowfile_repository"
-          name: nifi-flow
+          name: nifi-flow-pvc
           pvcSpec:
             accessModes:
               - ReadWriteOnce
@@ -44,7 +44,7 @@ spec:
               requests:
                 storage: 10Gi
         - mountPath: "/opt/nifi/nifi-current/provenance_repository"
-          name: nifi-provenance
+          name: nifi-provenance-pvc
           pvcSpec:
             accessModes:
               - ReadWriteOnce
