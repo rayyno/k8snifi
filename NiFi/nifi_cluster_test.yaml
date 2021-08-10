@@ -1,12 +1,12 @@
 apiVersion: nifi.orange.com/v1alpha1
 kind: NifiCluster
 metadata:
-  name: sslnifi
+  name: testnifi
 spec:
   service:
     headlessEnabled: true
   zkAddress: "zookeeper-0.zookeeper-headless.zookeeper.svc.cluster.local:2181"
-  zkPath: "/sslnifi5"
+  zkPath: "/testnifi"
   clusterImage: "apache/nifi:1.12.1"
   oneNifiNodePerNode: false
   managedAdminUsers:
@@ -15,17 +15,17 @@ spec:
   nodeConfigGroups:
     default_group:
       isNode: true
-      storageConfigs:
-        - mountPath: "/opt/nifi/nifi-current/logs"
-          name: nifi-logs-pvc
-          pvcSpec:
-            accessModes:
-              - ReadWriteOnce
-            volumeName: "nifi-logs-pv"
-            storageClassName: "standard"
-            resources:
-              requests:
-                storage: 10Gi
+      # storageConfigs:
+      #   - mountPath: "/opt/nifi/nifi-current/logs"
+      #     name: nifi-logs-pvc
+      #     pvcSpec:
+      #       accessModes:
+      #         - ReadWriteOnce
+      #       volumeName: "nifi-logs-pv"
+      #       storageClassName: "standard"
+      #       resources:
+      #         requests:
+      #           storage: 10Gi
       serviceAccountName: "default"
       resourcesRequirements:
         limits:
@@ -37,18 +37,43 @@ spec:
   nodes:
     - id: 0
       nodeConfigGroup: "default_group"
+      nodeConfig:
+        storageConfigs:
+          - mountPath: "/opt/nifi/nifi-current/logs"
+            name: nifi-logs-pvc
+            pvcSpec:
+              accessModes:
+                - ReadWriteOnce
+              volumeName: "nifi-logs-pv"
+              storageClassName: "standard"
+              resources:
+                requests:
+                  storage: 10Gi
+    - id: 1
+      nodeConfigGroup: "default_group"
+      nodeConfig:
+        storageConfigs:
+          - mountPath: "/opt/nifi/nifi-current/logs"
+            name: nifi-logs-pvc
+            pvcSpec:
+              accessModes:
+                - ReadWriteOnce
+              volumeName: "nifi-logs-pv"
+              storageClassName: "standard"
+              resources:
+                requests:
+                  storage: 10Gi
   propagateLabels: true
   nifiClusterTaskSpec:
     retryDurationMinutes: 10
   readOnlyConfig:
     nifiProperties:
       webProxyHosts:
-        - 35.205.55.108:8443
-        - 34.140.15.40:19443
+        - 34.79.208.247:8443
       overrideConfigs: |
-        nifi.security.user.oidc.discovery.url=http://34.78.211.255:8080/auth/realms/master/.well-known/openid-configuration
+        nifi.security.user.oidc.discovery.url=http://34.140.8.74:8080/auth/realms/master/.well-known/openid-configuration
         nifi.security.user.oidc.client.id=nifi
-        nifi.security.user.oidc.client.secret=c543d2e5-d628-466a-a3e5-7c9803f27991
+        nifi.security.user.oidc.client.secret=53a4ef07-8576-4797-b01b-e15e85d5952c
         nifi.security.identity.mapping.pattern.dn=CN=([^,]*)(?:, (?:O|OU)=.*)?
         nifi.security.identity.mapping.value.dn=$1
         nifi.security.identity.mapping.transform.dn=NONE
@@ -67,7 +92,7 @@ spec:
         name: "prometheus"
         containerPort: 9090
     sslSecrets:
-      tlsSecretName: "ssl-nifikop7"
+      tlsSecretName: "test-nifi"
       create: true
   externalServices:
     - name: "clusterip"
