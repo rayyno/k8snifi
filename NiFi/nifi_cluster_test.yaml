@@ -73,7 +73,7 @@ spec:
       overrideConfigs: |
         nifi.security.user.oidc.discovery.url=http://34.140.8.74:8080/auth/realms/master/.well-known/openid-configuration
         nifi.security.user.oidc.client.id=nifi
-        nifi.security.user.oidc.client.secret=eee5f87d-d469-4ce9-b885-28984decb0ff
+        nifi.security.user.oidc.client.secret=4fe3e184-8daf-4a21-972c-c12610349ca4
         nifi.security.identity.mapping.pattern.dn=CN=([^,]*)(?:, (?:O|OU)=.*)?
         nifi.security.identity.mapping.value.dn=$1
         nifi.security.identity.mapping.transform.dn=NONE
