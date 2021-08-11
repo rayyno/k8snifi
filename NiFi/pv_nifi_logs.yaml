@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nifi-logs-pv00
+  name: nifi-logs-pv0
 spec:
   storageClassName: standard
   capacity:
