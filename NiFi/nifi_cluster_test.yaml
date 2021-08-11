@@ -5,7 +5,7 @@ metadata:
 spec:
   service:
     headlessEnabled: true
-  zkAddress: "zookeeper-0.zookeeper-headless.zookeeper.svc.cluster.local:2181"
+  zkAddress: "zk-0.zk-hs.zookeeper.svc.cluster.local:2181"
   zkPath: "/testnifi"
   clusterImage: "apache/nifi:1.12.1"
   oneNifiNodePerNode: false
@@ -40,11 +40,11 @@ spec:
       nodeConfig:
         storageConfigs:
           - mountPath: "/opt/nifi/nifi-current/logs"
-            name: nifi-logs-pvc
+            name: nifi-logs-pvc0
             pvcSpec:
               accessModes:
                 - ReadWriteOnce
-              volumeName: "nifi-logs-pv"
+              volumeName: "nifi-logs-pv0"
               storageClassName: "standard"
               resources:
                 requests:
@@ -54,11 +54,11 @@ spec:
       nodeConfig:
         storageConfigs:
           - mountPath: "/opt/nifi/nifi-current/logs"
-            name: nifi-logs-pvc
+            name: nifi-logs-pvc1
             pvcSpec:
               accessModes:
                 - ReadWriteOnce
-              volumeName: "nifi-logs-pv"
+              volumeName: "nifi-logs-pv1"
               storageClassName: "standard"
               resources:
                 requests:
