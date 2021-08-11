@@ -4,11 +4,11 @@ metadata:
   name: nifi-static-lb
   labels:
     app: nifi
-    nifi_cr: sslnifi
+    nifi_cr: testnifi
 spec:
   selector:
     app: nifi
-    nifi_cr: sslnifi
+    nifi_cr: testnifi
   ports:
   - port: 8443
     targetPort: 8443
