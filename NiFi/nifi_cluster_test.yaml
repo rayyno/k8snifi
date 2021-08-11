@@ -5,7 +5,7 @@ metadata:
 spec:
   service:
     headlessEnabled: true
-  zkAddress: "zookeeper1.zookeeper.svc.cluster.local:2181"
+  zkAddress: "zookeeperbit.zookeeper.svc.cluster.local:2181"
   zkPath: "/testnifi"
   clusterImage: "apache/nifi:1.12.1"
   oneNifiNodePerNode: false
