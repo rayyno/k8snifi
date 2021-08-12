@@ -10,7 +10,7 @@ spec:
   clusterImage: "apache/nifi:1.12.1"
   oneNifiNodePerNode: false
   managedAdminUsers:
-    - identity: "rayan@email.com"
+    - identity: "rayan"
       name: "rayan"
   nodeConfigGroups:
     default_group:
