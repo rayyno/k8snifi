@@ -70,6 +70,7 @@ spec:
     nifiProperties:
       webProxyHosts:
         - 34.79.208.247:8443
+        - 104.199.74.48:30785
       overrideConfigs: |
         nifi.security.user.oidc.discovery.url=http://34.76.216.40:8080/auth/realms/master/.well-known/openid-configuration
         nifi.security.user.oidc.client.id=nifi
