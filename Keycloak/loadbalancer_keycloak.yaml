@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: keycloak-static-lb
+  labels:
+    app: keycloak
+    keycloak_cr: keycloak
+spec:
+  selector:
+    app: keycloak
+    keycloak_cr: keycloak
+  ports:
+  - port: 8080
+    targetPort: 8080
+  type: LoadBalancer
+  loadBalancerIP: 34.79.78.207
