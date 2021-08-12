@@ -110,6 +110,7 @@ spec:
     - name: "loadbalancer"
       spec:
         type: LoadBalancer
+        loadBalancerIP: 34.79.208.247
         portConfigs:
           - port: 8443
             internalListenerName: "https"
@@ -120,6 +121,7 @@ spec:
         type: NodePort
         portConfigs:
           - port: 8443
+            nodePort: 30785
             internalListenerName: "https"
       serviceAnnotations:
         toto: tata
