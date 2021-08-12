@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: keycloak-static-lb
   labels:
-    app: keycloak
+    app: keycloak-0
 spec:
   selector:
-    app: keycloak
+    app: keycloak-0
   ports:
   - port: 8080
     targetPort: 8080
