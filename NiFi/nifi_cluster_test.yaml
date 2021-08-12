@@ -74,6 +74,9 @@ spec:
         nifi.security.user.oidc.discovery.url=http://34.76.216.40:8080/auth/realms/master/.well-known/openid-configuration
         nifi.security.user.oidc.client.id=nifi
         nifi.security.user.oidc.client.secret=2e99f5ab-67e6-496a-80f9-f5dfaa18d588
+        nifi.security.user.oidc.preferred.jwsalgorithm=RS256
+        nifi.security.user.oidc.additional.scopes=
+        nifi.security.user.oidc.claim.identifying.user=preferred_username
         nifi.security.identity.mapping.pattern.dn=CN=([^,]*)(?:, (?:O|OU)=.*)?
         nifi.security.identity.mapping.value.dn=$1
         nifi.security.identity.mapping.transform.dn=NONE
