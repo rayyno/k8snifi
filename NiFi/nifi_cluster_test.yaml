@@ -121,7 +121,7 @@ spec:
         type: NodePort
         portConfigs:
           - port: 8443
-            nodePort: 30785
+            # nodePort: 30785
             internalListenerName: "https"
       serviceAnnotations:
         toto: tata
