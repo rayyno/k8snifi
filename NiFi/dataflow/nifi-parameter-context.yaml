@@ -1,0 +1,20 @@
+apiVersion: nifi.orange.com/v1alpha1
+kind: NifiParameterContext
+metadata:
+  name: dataflow-lifecycle
+  namespace: nifi
+spec:
+  description: "It is a test"
+  clusterRef:
+    name: testnifi
+    namespace: nifi
+  secretRefs:
+    - name: secret-params
+      namespace: nifi
+  parameters:
+    - name: test
+      value: toto
+      description: tutu
+    - name: test2
+      value: toto
+      description: toto
