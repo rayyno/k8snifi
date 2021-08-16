@@ -11,4 +11,4 @@ spec:
   - port: 19443
     targetPort: 19443
   type: LoadBalancer
-  loadBalancerIP: 34.140.15.40
+  loadBalancerIP: 34.78.170.244
