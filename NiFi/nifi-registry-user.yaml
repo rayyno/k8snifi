@@ -1,11 +1,11 @@
 apiVersion: nifi.orange.com/v1alpha1
 kind: NifiRegistryClient
 metadata:
-  name: registry-client-example
+  name: registry-client-nifikop
   namespace: nifi
 spec:
   clusterRef:
-    name: simplenifi
+    name: testnifi
     namespace: nifi
   description: "Registry client managed by NiFiKop"
-  uri: "https://nifi-registry-0:19443"
+  uri: "http://10.68.12.154:18080"
