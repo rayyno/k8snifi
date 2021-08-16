@@ -45,6 +45,7 @@ spec:
           #           cat /opt/nifi-registry/nifi-registry-current/nifi-registry.properties/authorizers.xml > /opt/nifi-registry/nifi-registry-current/conf/authorizers.xml
           ports:
             - containerPort: 18080
+          # random line #####
           # volumeMounts:
           #   - name: registryssl
           #     mountPath: /opt/nifi-registry/nifi-registry-current/keystore.jks
