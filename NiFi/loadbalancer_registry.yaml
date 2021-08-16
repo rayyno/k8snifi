@@ -11,4 +11,4 @@ spec:
   - port: 18080
     targetPort: 18080
   type: LoadBalancer
-  loadBalancerIP: 34.78.170.244
+  loadBalancerIP: 34.79.205.129
