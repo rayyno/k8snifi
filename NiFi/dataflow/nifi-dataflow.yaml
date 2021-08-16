@@ -6,7 +6,7 @@ spec:
   # parentProcessGroupID: "3b055d9c-017b-1000-d484-f94be84c4cf3"
   bucketId: "61b136da-fefb-4619-b50d-365271180962"
   flowId: "f09808ad-c3dd-4657-b51b-54c34d01474b"
-  flowVersion: 1
+  flowVersion: 3
   runOnce: false
   skipInvalidControllerService: true
   skipInvalidComponent: true
