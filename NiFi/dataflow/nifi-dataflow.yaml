@@ -7,7 +7,7 @@ spec:
   bucketId: "61b136da-fefb-4619-b50d-365271180962"
   flowId: "140d168a-a501-4a78-a343-9278eb8dc08b"
   flowVersion: 1
-  runOnce: false
+  runOnce: true
   skipInvalidControllerService: true
   skipInvalidComponent: true
   clusterRef:
