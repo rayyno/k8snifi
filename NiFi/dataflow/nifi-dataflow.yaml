@@ -11,12 +11,12 @@ spec:
   skipInvalidControllerService: true
   skipInvalidComponent: true
   clusterRef:
-    name: nc
-    namespace: nifikop
+    name: testnifi
+    namespace: nifi
   registryClientRef:
     name: registry-client-example
-    namespace: nifikop
+    namespace: nifi
   parameterContextRef:
     name: dataflow-lifecycle
-    namespace: demo
+    namespace: nifi
   updateStrategy: drain
