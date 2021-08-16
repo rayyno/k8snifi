@@ -20,11 +20,10 @@ apiVersion: v1
 metadata:
   name: nifi-registry
 spec:
-  clusterIP: None
   selector:
     app: nifi-registry
   ports:
     - protocol: TCP
       port: 18080
       targetPort: 18080
-      name: nifi-registry-listen-http
+      name: nifi-registry-cluster-ip
