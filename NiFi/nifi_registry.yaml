@@ -34,26 +34,26 @@ spec:
               memory: 256Mi
               cpu: 500m
           imagePullPolicy: Always
-          lifecycle:
-            postStart:
-              exec:
-                command:
-                  - bash
-                  - -c
-                  - |
-                    cat /opt/nifi-registry/nifi-registry-current/nifi-registry.properties/nifi-registry.properties > /opt/nifi-registry/nifi-registry-current/conf/nifi-registry.properties
-                    cat /opt/nifi-registry/nifi-registry-current/nifi-registry.properties/authorizers.xml > /opt/nifi-registry/nifi-registry-current/conf/authorizers.xml
+          # lifecycle:
+          #   postStart:
+          #     exec:
+          #       command:
+          #         - bash
+          #         - -c
+          #         - |
+          #           cat /opt/nifi-registry/nifi-registry-current/nifi-registry.properties/nifi-registry.properties > /opt/nifi-registry/nifi-registry-current/conf/nifi-registry.properties
+          #           cat /opt/nifi-registry/nifi-registry-current/nifi-registry.properties/authorizers.xml > /opt/nifi-registry/nifi-registry-current/conf/authorizers.xml
           ports:
-            - containerPort: 19443
-          volumeMounts:
-            - name: registryssl
-              mountPath: /opt/nifi-registry/nifi-registry-current/keystore.jks
-              subPath: keystore.jks
-            - name: registryssl
-              mountPath: /opt/nifi-registry/nifi-registry-current/truststore.jks
-              subPath: truststore.jks
-            - name: registryproperties
-              mountPath: /opt/nifi-registry/nifi-registry-current/nifi-registry.properties
+            - containerPort: 19080
+          # volumeMounts:
+          #   - name: registryssl
+          #     mountPath: /opt/nifi-registry/nifi-registry-current/keystore.jks
+          #     subPath: keystore.jks
+          #   - name: registryssl
+          #     mountPath: /opt/nifi-registry/nifi-registry-current/truststore.jks
+          #     subPath: truststore.jks
+          #   - name: registryproperties
+          #     mountPath: /opt/nifi-registry/nifi-registry-current/nifi-registry.properties
           env:
             - name: FLOW_PROVIDER
               value: "git"
@@ -73,20 +73,20 @@ spec:
               value: "APACHE NIFI REGISTRY"
             - name: GIT_CONFIG_USER_EMAIL
               value: ""
-      volumes:
-        - name: registryssl
-          projected:
-            sources:
-            - secret:
-                name: registry-ssl
-                items:
-                  - key: keystore.jks
-                    path: keystore.jks
-                  - key: truststore.jks
-                    path: truststore.jks
-        - name: registryproperties
-          configMap:
-            name: registry-properties
+      # volumes:
+      #   - name: registryssl
+      #     projected:
+      #       sources:
+      #       - secret:
+      #           name: registry-ssl
+      #           items:
+      #             - key: keystore.jks
+      #               path: keystore.jks
+      #             - key: truststore.jks
+      #               path: truststore.jks
+      #   - name: registryproperties
+      #     configMap:
+      #       name: registry-properties
   # volumeClaimTemplates:
   # - metadata:
   #     name: flowfilerepository
