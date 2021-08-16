@@ -8,7 +8,7 @@ spec:
   selector:
     app: nifi-registry
   ports:
-  - port: 19443
-    targetPort: 19443
+  - port: 19080
+    targetPort: 19080
   type: LoadBalancer
   loadBalancerIP: 34.78.170.244
