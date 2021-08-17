@@ -63,6 +63,8 @@ spec:
               resources:
                 requests:
                   storage: 10Gi
+    - id: 2
+      nodeConfigGroup: "default_group"
   propagateLabels: true
   nifiClusterTaskSpec:
     retryDurationMinutes: 10
