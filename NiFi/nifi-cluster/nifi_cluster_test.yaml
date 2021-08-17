@@ -67,6 +67,8 @@ spec:
   nifiClusterTaskSpec:
     retryDurationMinutes: 10
   readOnlyConfig:
+    bootstrapProperties:
+      nifiJvmMemory: "3g"
     nifiProperties:
       webProxyHosts:
         - 34.79.208.247:8443
@@ -81,8 +83,6 @@ spec:
         nifi.security.identity.mapping.pattern.dn=CN=([^,]*)(?:, (?:O|OU)=.*)?
         nifi.security.identity.mapping.value.dn=$1
         nifi.security.identity.mapping.transform.dn=NONE
-  bootstrapProperties:
-    nifiJvmMemory: "3g"
   listenersConfig:
     internalListeners:
       - type: "https"
