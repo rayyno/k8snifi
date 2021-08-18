@@ -8,5 +8,5 @@ spec:
   instances: 2
   externalAccess:
     enabled: True
-  # externalDatabase:
-  #   enabled: True
+  externalDatabase:
+    enabled: True
