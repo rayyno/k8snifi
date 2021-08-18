@@ -5,10 +5,10 @@ metadata:
     namespace: keycloak
 type: Opaque
 stringData:
-    POSTGRES_DATABASE: keycloak
-    POSTGRES_EXTERNAL_ADDRESS: "34.140.250.41"
-    POSTGRES_EXTERNAL_PORT: "3306"
-    POSTGRES_HOST: "mysql"
-    POSTGRES_PASSWORD: "123456"
-    POSTGRES_SUPERUSER: "true"
-    POSTGRES_USERNAME: keycloak-user
+    MYSQL_DATABASE: keycloak
+    MYSQL_EXTERNAL_ADDRESS: "34.140.250.41"
+    MYSQL_EXTERNAL_PORT: "3306"
+    MYSQL_HOST: "mysql"
+    MYSQL_PASSWORD: "123456"
+    MYSQL_SUPERUSER: "true"
+    MYSQL_USERNAME: keycloak-user
