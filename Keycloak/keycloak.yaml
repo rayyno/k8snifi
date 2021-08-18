@@ -6,7 +6,7 @@ metadata:
     app: keycloak
 spec:
   instances: 2
-  externalAccess:
-    enabled: True
+  # externalAccess:
+  #   enabled: True
   externalDatabase:
     enabled: True
