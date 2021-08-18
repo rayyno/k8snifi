@@ -6,7 +6,8 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: postgres
+      app: keycloak
+      component: database
   template:
     metadata:
       labels:
