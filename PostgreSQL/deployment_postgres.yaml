@@ -10,7 +10,8 @@ spec:
   template:
     metadata:
       labels:
-        app: postgres
+        app: keycloak
+        component: database
     spec:
       containers:
         - name: postgres
