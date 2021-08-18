@@ -19,7 +19,7 @@ spec:
         env:
           # Use secret in real usage
         - name: MYSQL_ROOT_PASSWORD
-          value: "1234"
+          value: "123456"
         # - name: MYSQL_DATABASE
         #   value: "hortonworks"
         # - name: MYSQL_USER
