@@ -6,6 +6,7 @@ metadata:
   labels:
     app: keycloak
 spec:
+  serviceName: keycloak-hs
   replicas: 2
   selector:
     matchLabels:
