@@ -9,6 +9,6 @@ spec:
   accessModes:
     - ReadWriteOnce
   gcePersistentDisk:
-    pdName: nifi-logs-disk0
+    pdName: nifi-logs-disk1
     fsType: ext4
   persistentVolumeReclaimPolicy: Retain
