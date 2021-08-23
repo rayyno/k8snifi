@@ -18,7 +18,7 @@ spec:
           pvcSpec:
             accessModes:
               - ReadWriteOnce
-            volumeName: "nifi-logs-pv"
+            # volumeName: "nifi-logs-pv"
             storageClassName: "standard"
             resources:
               requests:
