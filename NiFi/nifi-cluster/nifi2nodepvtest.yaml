@@ -12,17 +12,17 @@ spec:
   nodeConfigGroups:
     default_group:
       isNode: true
-      storageConfigs:
-        - mountPath: "/opt/nifi/nifi-current/logs"
-          name: nifi-logs-pvc
-          pvcSpec:
-            accessModes:
-              - ReadWriteOnce
-            volumeName: "nifi-logs-pv"
-            storageClassName: "standard"
-            resources:
-              requests:
-                storage: 10Gi
+      # storageConfigs:
+      #   - mountPath: "/opt/nifi/nifi-current/logs"
+      #     name: nifi-logs-pvc
+      #     pvcSpec:
+      #       accessModes:
+      #         - ReadWriteOnce
+      #       volumeName: "nifi-logs-pv"
+      #       storageClassName: "standard"
+      #       resources:
+      #         requests:
+      #           storage: 10Gi
       serviceAccountName: "default"
       resourcesRequirements:
         limits:
